@@ -34,8 +34,5 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 # Expose port for MCP server HTTP transport
 EXPOSE 8000
 
-# Set entrypoint to run scrapling
-ENTRYPOINT ["uv", "run", "scrapling"]
-
-# Default command (can be overridden)
-CMD ["--help"]
+# Set entrypoint to run the FastAPI server
+ENTRYPOINT ["uv", "run", "uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]

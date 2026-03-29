@@ -67,6 +67,8 @@ dependencies = [
     "tld>=0.13.2",
     "w3lib>=2.4.0",
     "typing_extensions",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.34.0",
 ]
 
 [project.optional-dependencies]
