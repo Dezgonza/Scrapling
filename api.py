@@ -3,13 +3,13 @@ from scrapling.fetchers import Fetcher
 from markdownify import markdownify
 
 app = FastAPI()
-fetcher = Fetcher(impersonate="chrome")
+fetcher = Fetcher()
 
 
 @app.get("/scrape")
 def scrape(url: str, selector: str = None):
     try:
-        response = fetcher.get(url)
+        response = fetcher.get(url, impersonate="chrome")
         if selector:
             matches = response.css(selector)
             content = [el.text for el in matches]
